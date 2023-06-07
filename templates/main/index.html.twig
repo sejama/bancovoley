@@ -13,8 +13,14 @@
 
     This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Proyectos/MAXI SANTA FE 2023/proyecto/torneo-webapp/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Proyectos/MAXI SANTA FE 2023/proyecto/torneo-webapp/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
+        <li><a href="{{ path('app_main') }}">Menu</a></li>
+        {% if app.user %}
+        <li>You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a></li>
+        {% else %}
+        <li><a href="{{ path('app_login') }}">Login</a></li>  
+        {% endif %}
+        <li><a href="{{ path('app_register') }}">Register</a></li>
+        <li><a href="{{ path('app_user_index') }}">Users</a></li>
     </ul>
 </div>
 {% endblock %}
